@@ -1,7 +1,7 @@
 import api from './Api'
 import authService from './AuthService'
 
-const PhotoService = {
+const photoService = {
   deletePhoto: async (photoId: number) => {
     try {
       const response = await api.delete(`photos/${photoId}`, {
@@ -19,4 +19,4 @@ const PhotoService = {
   },
 }
 
-export default PhotoService
+export default photoService

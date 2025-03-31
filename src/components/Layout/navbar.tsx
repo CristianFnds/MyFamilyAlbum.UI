@@ -10,7 +10,7 @@ import {
   Typography,
 } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
-import authService from '../../services/AuthService'
+import authService from '../../api/AuthService'
 
 const Navbar = ({
   onMenuClick,

@@ -9,7 +9,8 @@ import {
 } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import authService from '../../services/AuthService'
+
+import authService from '../../api/AuthService'
 import styles from './Login.module.css'
 
 const LoginPage = () => {

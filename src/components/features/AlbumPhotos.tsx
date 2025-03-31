@@ -9,24 +9,13 @@ import {
 } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import AlbumService from '../services/AlbumService'
-import PhotoService from '../services/PhotosService'
-import UserService from '../services/UserService'
-import Actions from './Actions'
-import Layout from './Layout/Layout'
-
-interface Photo {
-  id: number
-  albumId: number
-  title: string
-  url: string
-  thumbnailUrl: string
-}
-interface User {
-  id: string
-  name: string
-  email: string
-}
+import albumService from '../../api/AlbumService'
+import photoService from '../../api/PhotosService'
+import userService from '../../api/UserService'
+import { Photo } from '../../types/Photo'
+import { User } from '../../types/User'
+import Actions from '../common/Actions'
+import Layout from '../Layout/Layout'
 
 const AlbumPhotos = () => {
   const { userId, albumId } = useParams<{ userId: string; albumId: string }>()
@@ -38,8 +27,8 @@ const AlbumPhotos = () => {
     const fetchPhotos = async () => {
       try {
         if (albumId && userId) {
-          setPhotos(await AlbumService.getPhotosByAlbumId(albumId))
-          setUser(await UserService.getUser(userId))
+          setPhotos(await albumService.getPhotosByAlbumId(albumId))
+          setUser(await userService.getUser(userId))
         }
       } catch (error) {
         console.error('Erro ao buscar fotos do álbum:', error)
@@ -51,7 +40,7 @@ const AlbumPhotos = () => {
 
   const handleDelete = async (photoId: number) => {
     if (window.confirm('Tem certeza que deseja excluir esta foto?')) {
-      await PhotoService.deletePhoto(photoId)
+      await photoService.deletePhoto(photoId)
       setPhotos((prevPhotos) =>
         prevPhotos.filter((photo) => photo.id !== photoId)
       )

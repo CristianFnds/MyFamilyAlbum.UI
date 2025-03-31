@@ -1,19 +1,6 @@
 import { jwtDecode } from 'jwt-decode'
+import { LoginData, TokenPayload } from '../types/Auth'
 import api from './Api'
-
-//TODO mover interface
-interface TokenPayload {
-  email: string
-  name: string
-  userId: number
-  exp: number
-  sub: string
-}
-
-interface LoginData {
-  email: string
-  password: string
-}
 
 const authService = {
   login: async (loginData: LoginData) => {

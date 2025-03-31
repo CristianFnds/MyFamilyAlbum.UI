@@ -2,22 +2,12 @@ import CollectionsIcon from '@mui/icons-material/Collections'
 import { Card, CardContent, Container, Grid, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import AlbumService from '../services/AlbumService'
-import UserService from '../services/UserService'
-import Actions from './Actions'
-import Layout from './Layout/Layout'
-
-interface Album {
-  id: number
-  userId: string
-  title: string
-}
-
-interface User {
-  id: string
-  name: string
-  email: string
-}
+import albumService from '../../api/AlbumService'
+import userService from '../../api/UserService'
+import { Album } from '../../types/Album'
+import { User } from '../../types/User'
+import Layout from '../Layout/Layout'
+import Actions from '../common/Actions'
 
 const UserAlbums = () => {
   const { userId } = useParams<{ userId: string }>()
@@ -29,8 +19,8 @@ const UserAlbums = () => {
     const fetchAlbums = async () => {
       try {
         if (userId) {
-          const userAlbums = await UserService.getAlbumByUserId(userId)
-          const user = await UserService.getUser(userId)
+          const userAlbums = await userService.getAlbumByUserId(userId)
+          const user = await userService.getUser(userId)
           setAlbums(userAlbums)
           setUser(user)
         }
@@ -44,7 +34,7 @@ const UserAlbums = () => {
 
   const handleDelete = async (albumId: number) => {
     try {
-      await AlbumService.deleteAlbum(albumId.toString())
+      await albumService.deleteAlbum(albumId.toString())
 
       setAlbums((prevAlbums) =>
         prevAlbums.filter((album) => album.id !== albumId)

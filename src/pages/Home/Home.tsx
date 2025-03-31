@@ -1,5 +1,5 @@
+import UserList from '../../components/features/UserList'
 import Layout from '../../components/Layout/Layout'
-import UserList from '../../components/UserList'
 
 const HomePage = () => {
   return (

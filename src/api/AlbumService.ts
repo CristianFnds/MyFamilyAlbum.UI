@@ -1,7 +1,7 @@
 import api from './Api'
 import authService from './AuthService'
 
-const AlbumService = {
+const albumService = {
   getPhotosByAlbumId: async (albumId: string) => {
     const response = await api.get(`album/${albumId}/photos`)
     return response.data
@@ -24,4 +24,4 @@ const AlbumService = {
   },
 }
 
-export default AlbumService
+export default albumService

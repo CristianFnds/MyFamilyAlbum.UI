@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom'
-import authService from '../services/AuthService'
+import authService from '../../api/AuthService'
 
 const PrivateRoute = () => {
   if (!authService.isAuthenticated()) {

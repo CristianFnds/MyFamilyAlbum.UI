@@ -8,7 +8,7 @@ import {
 } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import UserService from '../services/UserService'
+import userService from '../../api/UserService'
 
 interface User {
   id: string
@@ -23,7 +23,7 @@ const UserList = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const usersData = await UserService.getUsers()
+        const usersData = await userService.getUsers()
         setUsers(usersData)
       } catch (error) {
         console.error('Erro ao buscar usuários:', error)
