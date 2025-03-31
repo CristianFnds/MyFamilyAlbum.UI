@@ -4,6 +4,8 @@ import authService from './AuthService'
 const photoService = {
   deletePhoto: async (photoId: number) => {
     try {
+      if (photoId == 0) return //photo created in time execution time
+
       const response = await api.delete(`photos/${photoId}`, {
         headers: {
           Authorization: `Bearer ${authService.getToken()}`,

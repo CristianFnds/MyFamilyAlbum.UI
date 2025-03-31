@@ -1,7 +1,8 @@
 import MenuOpenRoundedIcon from '@mui/icons-material/MenuOpenRounded'
 import { Drawer, IconButton, List, ListItem, ListItemText } from '@mui/material'
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import AuthService from '../../api/AuthService'
 
 interface MenuLateralProps {
   open: boolean
@@ -9,6 +10,21 @@ interface MenuLateralProps {
 }
 
 const MenuLateral: FC<MenuLateralProps> = ({ open, onClose }) => {
+  const [authUserId, setAuthUserId] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchAuthUser = async () => {
+      try {
+        const authUser = await AuthService.getUser()
+        setAuthUserId(authUser.id)
+      } catch (error) {
+        console.error('Erro ao obter o usuário autenticado:', error)
+      }
+    }
+
+    fetchAuthUser()
+  }, [])
+
   return (
     <Drawer anchor="left" open={open} onClose={onClose} variant="persistent">
       <div>
@@ -17,17 +33,11 @@ const MenuLateral: FC<MenuLateralProps> = ({ open, onClose }) => {
         </IconButton>
       </div>
       <List sx={{ marginTop: 2 }}>
-        <ListItem component={Link} to="/add-photo">
-          <ListItemText primary="Add photo" />
+        <ListItem component={Link} to="/home">
+          <ListItemText primary="My users" />
         </ListItem>
-        <ListItem component={Link} to="/meus-usuarios">
-          <ListItemText primary="Meus Usuários" />
-        </ListItem>
-        <ListItem component={Link} to="/my-album">
-          <ListItemText primary="Meus Álbuns" />
-        </ListItem>
-        <ListItem component={Link} to="/minhas-fotos">
-          <ListItemText primary="Minhas Fotos do Álbum" />
+        <ListItem component={Link} to={`/users/${authUserId}/albums`}>
+          <ListItemText primary="My user albums" />
         </ListItem>
       </List>
     </Drawer>
