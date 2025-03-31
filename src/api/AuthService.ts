@@ -16,7 +16,7 @@ const authService = {
         localStorage.setItem('email', data.email)
       }
     } catch (error) {
-      throw new Error('Credenciais inválidas:' + error)
+      throw new Error('Invalid credentials:' + error)
     }
   },
 
@@ -43,7 +43,7 @@ const authService = {
     const token = authService.getToken()
 
     if (!token) return false
-    //Logica para validar expiration date //todo
+    //Logic to validate expiration date
     return true
   },
 
@@ -52,7 +52,7 @@ const authService = {
       const decoded = jwtDecode<TokenPayload>(token)
       return decoded
     } catch (error) {
-      console.error('Erro ao decodificar o token', error)
+      console.error('Error decoding the token', error)
       return null
     }
   },

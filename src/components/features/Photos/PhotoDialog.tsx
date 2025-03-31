@@ -33,7 +33,7 @@ const PhotoDialog = ({ albumId, onAddPhoto }: Props) => {
       setOpenDialog(false)
       setNewPhoto({ title: '', url: '' })
     } catch (error) {
-      console.error('Erro ao adicionar foto:', error)
+      console.error('Error adding photo:', error)
     }
   }
 
@@ -45,11 +45,11 @@ const PhotoDialog = ({ albumId, onAddPhoto }: Props) => {
         color="primary"
         onClick={() => setOpenDialog(true)}
       >
-        Adicionar Foto
+        Add photo
       </Button>
 
       <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
-        <DialogTitle>Adicionar Foto</DialogTitle>
+        <DialogTitle>Add photo</DialogTitle>
         <DialogContent>
           <TextField
             label="Título"

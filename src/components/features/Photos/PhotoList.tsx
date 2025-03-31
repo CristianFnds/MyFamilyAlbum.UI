@@ -22,14 +22,14 @@ const PhotoList = ({ albumId, userId }: Props) => {
         setAuthUserId(authUser.id)
         setPhotos(await albumService.getPhotosByAlbumId(albumId))
       } catch (error) {
-        console.error('Erro ao buscar fotos:', error)
+        console.error('Error fetching photos', error)
       }
     }
     fetchPhotos()
   }, [albumId])
 
   const handleDelete = async (photoId: number) => {
-    if (window.confirm('Tem certeza que deseja excluir esta foto?')) {
+    if (window.confirm('Are you sure you want to delete this photo?')) {
       setPhotos((prev) => prev.filter((p) => p.id !== photoId))
     }
   }

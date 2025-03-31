@@ -19,7 +19,7 @@ const Actions: React.FC<ActionsProps> = ({ userId, onEdit, onDelete }) => {
         const authUser = await AuthService.getUser()
         setAuthUserId(authUser.id)
       } catch (error) {
-        console.error('Erro ao obter o usuário autenticado:', error)
+        console.error('Error retrieving the authenticated user:', error)
       }
     }
 

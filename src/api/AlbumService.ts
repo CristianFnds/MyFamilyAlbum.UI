@@ -16,10 +16,12 @@ const albumService = {
       })
 
       if (response.status < 200 || response.status >= 300) {
-        throw new Error(`Erro ao excluir album: ${response.statusText}`)
+        throw new Error(`Error deleting album: ${response.statusText}`)
       }
     } catch (error: any) {
-      throw new Error('Não foi possível excluir a album. Tente novamente.')
+      throw new Error(
+        'It was not possible to delete the album. Please try again.'
+      )
     }
   },
 }

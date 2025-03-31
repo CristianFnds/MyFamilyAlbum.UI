@@ -15,7 +15,7 @@ const UserDetails = ({ userId }: UserDetailsProps) => {
       try {
         setUser(await userService.getUser(userId))
       } catch (error) {
-        console.error('Erro ao buscar usuário:', error)
+        console.error('Error fetching user:', error)
       }
     }
     fetchUser()

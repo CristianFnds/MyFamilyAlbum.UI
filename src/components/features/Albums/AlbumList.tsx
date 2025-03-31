@@ -23,7 +23,7 @@ const AlbumList = () => {
           setAlbums(userAlbums)
         }
       } catch (error) {
-        console.error('Erro ao buscar álbuns:', error)
+        console.error('Error fetching albums:', error)
       }
     }
 
@@ -36,10 +36,10 @@ const AlbumList = () => {
       setAlbums((prevAlbums) =>
         prevAlbums.filter((album) => album.id !== albumId)
       )
-      alert('Álbum excluído com sucesso!')
+      alert('Album successfully deleted!')
     } catch (error) {
-      console.error('Erro ao excluir álbum:', error)
-      alert('Erro ao excluir álbum.')
+      console.error('Error deleting album:', error)
+      alert('Error deleting album:')
     }
   }
 
@@ -63,7 +63,7 @@ const AlbumList = () => {
               userId={userId!}
               title={album.title}
               onDelete={handleDelete}
-              onEdit={() => console.log(`Editar álbum ${album.id}`)}
+              onEdit={() => console.log(`Edit album ${album.id}`)}
             />
           </Grid>
         ))}

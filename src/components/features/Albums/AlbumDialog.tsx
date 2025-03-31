@@ -22,8 +22,6 @@ const AlbumDialog = ({ userId, onAddAlbum }: Props) => {
   const handleClose = () => setOpen(false)
 
   const handleSubmit = async () => {
-    if (!title.trim()) return alert('O título do álbum é obrigatório.')
-
     try {
       //Fake create
       // const newAlbum = await albumService.createAlbum({ userId, title })
@@ -37,22 +35,21 @@ const AlbumDialog = ({ userId, onAddAlbum }: Props) => {
       setTitle('')
       handleClose()
     } catch (error) {
-      console.error('Erro ao criar álbum:', error)
-      alert('Erro ao criar álbum.')
+      alert('Error creating album')
     }
   }
 
   return (
     <>
       <Button variant="contained" color="primary" onClick={handleOpen}>
-        Criar Álbum
+        Create Álbum
       </Button>
 
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Criar Novo Álbum</DialogTitle>
+        <DialogTitle>Create Álbum</DialogTitle>
         <DialogContent>
           <TextField
-            label="Título do Álbum"
+            label="title album"
             fullWidth
             margin="normal"
             value={title}
@@ -61,10 +58,10 @@ const AlbumDialog = ({ userId, onAddAlbum }: Props) => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="secondary">
-            Cancelar
+            Cancel
           </Button>
           <Button onClick={handleSubmit} color="primary">
-            Criar
+            Create
           </Button>
         </DialogActions>
       </Dialog>

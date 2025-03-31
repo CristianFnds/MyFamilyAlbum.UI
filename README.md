@@ -1,56 +1,70 @@
-# React + TypeScript + Vite
+# Projeto MyFamilyAlbum.UI / MyFamilyAlbum.UI Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é um frontend desenvolvido em **React com TypeScript**, responsável por gerenciar álbuns e fotos. Ele consome a API do backend para exibir e manipular os dados.
 
-Currently, two official plugins are available:
+This project is a frontend developed in **React with TypeScript**, responsible for managing albums and photos. It consumes the backend API to display and manipulate data.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📦 Pré-requisitos / Prerequisites
 
-## Expanding the ESLint configuration
+Antes de começar, certifique-se de ter instalado em sua máquina:
+Before starting, make sure you have installed on your machine:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Node.js** (versão recomendada: 18+) / (recommended version: 18+)
+- **Gerenciador de pacotes**: `npm` ou `yarn` / **Package manager**: `npm` or `yarn`
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🚀 Como rodar o projeto / How to run the project
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Siga os passos abaixo para executar o projeto localmente:
+Follow the steps below to run the project locally:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **Clone o repositório:** / **Clone the repository:**
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+   ```sh
+   git clone https://github.com/CristianFnds/MyFamilyAlbum.UI.git
+   cd MyFamilyAlbum.UI
+   ```
 
-Separar em hooks
+2. **Instale as dependências:** / **Install dependencies:**
+
+   ```sh
+   npm install  # ou / or yarn install
+   ```
+
+3. **Configure as variáveis de ambiente:** / **Set up environment variables:**
+
+   - Crie um arquivo `.env` na raiz do projeto e adicione as configurações necessárias, por exemplo:
+   - Create a `.env` file in the project root and add the necessary settings, for example:
+
+     ```sh
+     REACT_APP_API_URL=http://localhost:3000
+     ```
+
+4. **Inicie o projeto:** / **Start the project:**
+
+   ```sh
+   npm run dev
+   ```
+
+5. **Acesse no navegador:** / **Access in the browser:**
+   O projeto será iniciado e pode ser acessado em [http://localhost:5173]
+   The project will start and can be accessed at [http://localhost:5173]
+
+## 🛠️ Melhorias Futuras / Future Improvements
+
+Aqui estão algumas melhorias planejadas para o projeto:
+Here are some planned improvements for the project:
+
+✅ **Separar a lógica em hooks** / **Separate logic into hooks**:
+
+- Criar hooks personalizados para melhorar a reutilização e organização do código.
+- Create custom hooks to improve code reuse and organization.
+
+✅ **Ajustar variáveis de ambiente** / **Adjust environment variables**:
+
+- Melhorar o gerenciamento das variáveis de ambiente, garantindo que não sejam expostas no código-fonte.
+- Improve environment variable management, ensuring they are not exposed in the source code.
+
+✅ **Tratar retornos via alert** / **Handle returns via alert**:
+
+- Substituir os `alert` por notificações mais amigáveis, como **toasts** (ex: `react-toastify`).
+- Replace `alert` with more user-friendly notifications, such as **toasts** (e.g., `react-toastify`).

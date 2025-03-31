@@ -24,7 +24,7 @@ const LoginPage = () => {
   useEffect(() => {
     if (location.state?.fromPrivateRoute) {
       setError(
-        'Você precisa estar logado para acessar esta página. Selecione um e-mail valido'
+        'You need to be logged in to access this page. Please select a valid email.'
       )
       window.history.replaceState({}, '')
     }
@@ -38,7 +38,7 @@ const LoginPage = () => {
       navigate('/home')
     } catch (error: any) {
       console.error('Error during login:', error.message)
-      setError('Falha ao fazer login. Verifique suas credenciais.')
+      setError('Login failed. Please check your credentials.')
     }
   }
 
@@ -80,7 +80,7 @@ const LoginPage = () => {
               fullWidth
               className={styles.button}
             >
-              Entrar
+              Login
             </Button>
           </Box>
         </Paper>

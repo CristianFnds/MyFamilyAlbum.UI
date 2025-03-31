@@ -13,7 +13,7 @@ const UserList = () => {
         const usersData = await userService.getUsers()
         setUsers(usersData)
       } catch (error) {
-        console.error('Erro ao buscar usuários:', error)
+        console.error('Error fetching users:', error)
       }
     }
 
