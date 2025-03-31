@@ -4,13 +4,13 @@ import { IconButton } from '@mui/material'
 import { useEffect, useState } from 'react'
 import AuthService from '../../api/AuthService'
 
-interface AlbumActionsProps {
+interface ActionsProps {
   userId: string
   onEdit: () => void
   onDelete: () => void
 }
 
-const Actions: React.FC<AlbumActionsProps> = ({ userId, onEdit, onDelete }) => {
+const Actions: React.FC<ActionsProps> = ({ userId, onEdit, onDelete }) => {
   const [authUserId, setAuthUserId] = useState<string | null>(null)
 
   useEffect(() => {

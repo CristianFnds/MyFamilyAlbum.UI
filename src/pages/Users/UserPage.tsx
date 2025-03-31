@@ -1,7 +1,7 @@
-import UserList from '../../components/features/UserList'
 import Layout from '../../components/Layout/Layout'
+import UserList from '../../components/features/Users/UserList'
 
-const HomePage = () => {
+const AlbumPhotos = () => {
   return (
     <Layout>
       <UserList></UserList>
@@ -9,4 +9,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default AlbumPhotos

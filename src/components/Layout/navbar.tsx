@@ -47,7 +47,7 @@ const Navbar = ({
           <Typography
             variant="h6"
             noWrap
-            component={Link} // Alterado para ser um link
+            component={Link}
             to="/home"
             sx={{
               flexGrow: 1,
